@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <link rel="stylesheet" href="stylesheets/master.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="stylesheets/highlight.min.css" type="text/css" media="screen" charset="utf-8">
+    <title>Ember Blog</title>
+
+    <script src="lib/jquery-1.7.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="lib/highlight.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="lib/ember-0.9.5.js" type="text/javascript" charset="utf-8"></script>
+    <script src="lib/ember-data-latest.js" type="text/javascript" charset="utf-8"></script>
+    <script src="lib/showdown.js" type="text/javascript" charset="utf-8"></script>
+    <script src="app/app.js" type="text/javascript" charset="utf-8"></script>
+    <script src="app/main.js" type="text/javascript" charset="utf-8"></script>
+    <script src="app/views.js" type="text/javascript" charset="utf-8"></script>
+    <script src="app/stateManager.js" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/x-handlebars" data-template-name="post-intro-view">
+        {{#with content}}
+            <h2>{{postDate}}: {{postTitle}}</h2>
+            {{postLongIntro}}
+        {{/with}}
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="post-list-view">
+        <h1>Latest Posts</h1>
+
+        {{#each content}}
+            {{view EmberBlog.PostIntroView contentBinding="this"}}
+        {{/each}}
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="right-area-view">
+        Featured Projects
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="post-view">
+        {{view EmberBlog.BackToMainView templateName="back-to-main-from-post-view"}}
+        {{convertMarkdown content}}
+        {{view EmberBlog.BackToMainView templateName="back-to-main-from-post-view"}}
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="back-to-main-from-post-view">
+        Back to Main
+    </script>
+
+</head>
+
+<body>
+<div id='header'>
+    <h1><a href="/">haagen.name</a></h1>
+    <h2><a href="http://no.linkedin.com/pub/joachim-haagen-skeie/11/893/78b">by Joachim Haagen Skeie</a></h2><br/>
+</div>
+
+<div id='headerLinks'>
+    <a href="/">Blog Posts</a>
+    <a href="http://eurekaj.haagen.name">EurekaJ</a>
+    <a href="/aboutme.html">About me</a>
+    <a href="/cv.html">CV</a>
+    <a href="http://no.linkedin.com/pub/joachim-haagen-skeie/11/893/78b">LinkedIn</a>
+</div>
+
+<div id="mainArea">
+
+</div>
+
+<div id='footer'>
+    Copyright 2011 Joachim Haagen Skeie. Code licensed under the <a href="http://www.opensource.org/licenses/mit-license.html">MIT license</a>. Content licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons</a>.<br />
+    Built using <a href="http://emberjs.com">Ember.js</a>, <a href="http://jquery.com/">jQuery</a> and <a href="https://github.com/coreyti/showdown">Showdown</a>.
+</div>
+
+</body>
+
+</html>

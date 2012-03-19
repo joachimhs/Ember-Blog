@@ -1,0 +1,19 @@
+[
+    {
+        "id": 1,
+        "postTitle": "Integrating a Sproutcore client in a deployable .WAR file",
+        "postDate": "2011-01-17 13:20:00",
+        "postShortInto": "Integrating SproutCore with a Java Deployable",
+        "postLongIntro": "EurekaJ Profiler (http://eurekaj.haagen.name) has a frontent SproutCore (SC) client application that talks to a backend Java application. The Java backend is deployed as a .WAR file and in this particular setting, I wanted to be able to package the Sproutcore application inside the .WAR file for a single deployable.",
+        "postUrl": "posts/2011-01-17-Integrating_a_SproutCore_client_in_a_deployable_war_file.md"
+    },
+
+    {
+        "id": 2,
+        "postTitle": "Implementing the EurekaJ Statechart in SproutCore",
+        "postDate": "2011-01-25 14:33:00",
+        "postShortInto": "Implementing StateCharts in SproutCore",
+        "postLongIntro": "Have you ever been frustrated about the number of code lines that you have in you Model-View-Controller application (MVC) for managing the current state of the application ? Is determining the overall state of the application hard to figure out, and generally a mess to debug ? Does your GUI tend to show the wrong panels, have overlapping panels and in general have recurring bugs with its state ? Then Statecharts are the way to go to achieve a cleaner, testable and less error-prone GUI.",
+        "postUrl": "posts/2011-01-25-Implementing_the_eurekaj_statechart.md"
+    }
+]
