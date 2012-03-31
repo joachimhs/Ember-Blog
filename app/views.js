@@ -24,13 +24,14 @@ EmberBlog.PostIntroView = Ember.View.extend({
 
     click: function() {
         EmberBlog.PostListController.set('selectedPost', this.get('content'));
-        EmberBlog.stateManager.goToState('showPostView');
+        //EmberBlog.stateManager.goToState('showPostView');
+        SC.routes.set("location", "post/" + this.get('content').get('id'));
     }
 });
 
 EmberBlog.View = Ember.View.extend({
     templateName: "post-view",
-    classNames: ['default'],
+    classNames: ['postView'],
 
     contentObserver: function() {
         this.rerender();
@@ -41,8 +42,30 @@ EmberBlog.BackToMainView = Ember.View.extend({
     classNames: ['hand'],
 
     click: function() {
-        EmberBlog.stateManager.goToState('showMainView');
-        EmberBlog.PostListController.set('selectedPost', null);
+        SC.routes.set("location", "main");
     }
+});
+
+EmberBlog.LinkView = Ember.View.extend({
+    tagName: 'span',
+    classNames: ['hand', 'headerLink'],
+
+    click: function() {
+        console.log('clicked link: ' + this.get('content').get('linkTitle'));
+
+        if (this.get('content').get('href')) {
+            window.location = this.get('content').get('href');
+        } else {
+            SC.routes.set("location", "page/" + this.get('content').get('id'));
+        }
+    }
+});
+
+EmberBlog.DisqusView = Ember.View.extend({
+    render: function(buffer) {
+        console.log('RENDER');
+        buffer.push('<script type="text/javascript" src="http://joachimhs.disqus.com/combination_widget.js?num_items=5&hide_mods=0&color=blue&default_tab=people&excerpt_length=200"></script><a href="http://disqus.com/">Powered by Disqus</a>');
+    }
+    //defaultTemplate: Ember.Handlebars.compile('<script type="text/javascript" src="http://joachimhs.disqus.com/combination_widget.js?num_items=5&hide_mods=0&color=blue&default_tab=people&excerpt_length=200"></script><a href="http://disqus.com/">Powered by Disqus</a>')
 });
 

@@ -22,22 +22,71 @@ EmberBlog.Post = DS.Model.extend({
     primaryKey: 'id',
     postTitle: DS.attr('string'),
     postDate: DS.attr('string'),
-    postShortInto: DS.attr('string'),
-    postLongIntro: DS.attr('string'),
-    postUrl: DS.attr('string')
+    postShortIntro: DS.attr('string'),
+    postLongIntro: DS.attr('string')
 });
 
 EmberBlog.Post.reopenClass({
     url: 'posts.json'
 });
 
+EmberBlog.FeaturedProject = DS.Model.extend({
+    primaryKey: 'id',
+    id: DS.attr('string'),
+    projectTitle: DS.attr('string'),
+    projectDescription: DS.attr('string'),
+    projectUrl: DS.attr('string')
+});
+
+EmberBlog.FeaturedProject.reopenClass({
+    url: 'featuredProjects.json'
+});
+
+EmberBlog.HeaderLink = DS.Model.extend({
+    primaryKey: 'id',
+    linkTitle: DS.attr('string'),
+    href: DS.attr('string')
+});
+
+EmberBlog.HeaderLink.reopenClass({
+    url: 'headerLinks.json'
+});
+
+EmberBlog.FeaturedProjectsController = Em.ArrayProxy.create({
+    content: []
+});
+
 EmberBlog.PostsListController = Em.ArrayProxy.create({
     content: [],
+    continueSearch: true,
 
     postsObserver: function() {
         EmberBlog.PostListController.addPosts(this.get('content'));
-    }.observes('content.length')
-})
+    }.observes('content.length'),
+
+    selectPostWithId: function(id) {
+        console.log('finding post with id: ' + id);
+        var foundPost = null;
+        this.get('content').forEach(function(post) {
+            console.log('comparing: ' + post.get('id') + ' with: ' + id);
+            if (post.get('id') === id) {
+                foundPost = post;
+            }
+        });
+
+        if (!foundPost && EmberBlog.PostsListController.get('continueSearch')) {
+            setTimeout(function() {
+                EmberBlog.PostsListController.set('continueSearch', false);
+                EmberBlog.PostsListController.selectPostWithId(id);
+            }, 150);
+        } else {
+            EmberBlog.PostListController.set('selectedPost', foundPost);
+            EmberBlog.PostsListController.set('continueSearch', true);
+        }
+
+        return foundPost;
+    }
+});
 
 EmberBlog.PostListController = Em.ArrayProxy.create({
     content: [],
@@ -62,9 +111,54 @@ EmberBlog.PostController = Em.Object.create({
 
     contentObserver: function() {
         if (this.get('content')) {
-            console.log('getting contents for URL: ' + this.get('content').get('postUrl'));
-            var markdown = $.get(this.get('content').get('postUrl'), function(data) {
+            console.log('getting contents for Post: ' + this.get('content').get('id'));
+            var markdown = $.get("posts/" + this.get('content').get('postFilename'), function(data) {
                 EmberBlog.PostController.set('markdown', data);
+            });
+        } else {
+            this.set('markdown', null);
+        }
+    }.observes('content')
+});
+
+EmberBlog.HeaderLinksController = Em.ArrayProxy.create({
+    content: [],
+    selectedLink: null,
+    continueSearch: true,
+
+    selectLinkWithId: function(id) {
+        console.log('finding link with id: ' + id);
+        var foundPost = null;
+        this.get('content').forEach(function(post) {
+            console.log('comparing: ' + post.get('id') + ' with: ' + id);
+            if (post.get('id') === id) {
+                foundPost = post;
+            }
+        });
+
+        if (!foundPost && EmberBlog.HeaderLinksController.get('continueSearch')) {
+            setTimeout(function() {
+                EmberBlog.HeaderLinksController.set('continueSearch', false);
+                EmberBlog.HeaderLinksController.selectLinkWithId(id);
+            }, 150);
+        } else {
+            EmberBlog.HeaderLinksController.set('selectedLink', foundPost);
+            EmberBlog.HeaderLinksController.set('continueSearch', true);
+        }
+
+        return foundPost;
+    }
+});
+
+EmberBlog.PageController = Em.Object.create({
+    contentBinding: 'EmberBlog.HeaderLinksController.selectedLink',
+    markdown: null,
+
+    contentObserver: function() {
+        if (this.get('content')) {
+            console.log('getting contents for Link: ' + this.get('content').get('linkFilename'));
+            var markdown = $.get("pages/" + this.get('content').get('linkFilename'), function(data) {
+                EmberBlog.PageController.set('markdown', data);
             });
         } else {
             this.set('markdown', null);

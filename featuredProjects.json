@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "projectTitle": "EurekaJ",
+        "projectDescription": "EurekaJ is an Open Source, Standards based profiler tool for Java applications.",
+        "projectUrl": "http://github.com/joachimhs/EurekaJ"
+    },
+    {
+        "id": 2,
+        "projectTitle": "Ember.js",
+        "projectDescription": "Ember is a JavaScript framework for creating ambitious web applications that eliminates boilerplate and provides a standard application architecture.",
+        "projectUrl": "http://emberjs.com/"
+    },
+    {
+        "id": 3,
+        "projectTitle": "SproutCore",
+        "projectDescription": "SproutCore is a framework for building blazing-fast, desktop-like applications in the web browser using only native HTML5 features.",
+        "projectUrl": "http://github.com/sproutcore/sproutcore"
+    },
+    {
+        "id": 4,
+        "projectTitle": "BTrace",
+        "projectDescription": "BTrace is a safe, dynamic tracing tool for the Java platform.",
+        "projectUrl": "http://kenai.com/projects/btrace"
+    },
+    {
+        "id": 5,
+        "projectTitle": "JWireReplay",
+        "projectDescription": "JWireReplay will be a tool that is able to replay HTTP traffic that is captured with the tool tcpdump.",
+        "projectUrl": "https://github.com/joachimhs/JWireReplay"
+    }
+]

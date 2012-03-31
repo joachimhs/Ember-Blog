@@ -45,3 +45,9 @@ Handlebars.registerHelper('convertMarkdown', function(property) {
     return '';
 });
 
+Handlebars.registerHelper('disqus', function(property) {
+    var value = '<script type="text/javascript" src="http://joachimhs.disqus.com/combination_widget.js?num_items=5&hide_mods=0&color=blue&default_tab=people&excerpt_length=200"></script><a href="http://disqus.com/">Powered by Disqus</a>';
+    console.log(value);
+    return new Ember.Handlebars.compile(value);
+});
+

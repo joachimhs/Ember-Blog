@@ -19,15 +19,16 @@
  */
 
 setTimeout(function() {
-
     EmberBlog.stateManager = Ember.StateManager.create({
-        rootElement: '#mainArea',
+        rootElement: '#emberArea',
         initialState: 'showMainView',
 
         showMainView: Ember.ViewState.create({
             enter: function(stateManager) {
                 this._super(stateManager);
                 EmberBlog.PostsListController.set('content', EmberBlog.store.findAll(EmberBlog.Post));
+                EmberBlog.FeaturedProjectsController.set('content', EmberBlog.store.findAll(EmberBlog.FeaturedProject));
+                EmberBlog.HeaderLinksController.set('content', EmberBlog.store.findAll(EmberBlog.HeaderLink));
             },
 
             view: Em.ContainerView.create({
@@ -52,7 +53,34 @@ setTimeout(function() {
                 elementId: 'post',
                 contentBinding: 'EmberBlog.PostController.markdown'
             })
+        }),
+
+        showPageView: Ember.ViewState.create({
+            view: EmberBlog.View.create({
+                elementId: 'post',
+                contentBinding: 'EmberBlog.PageController.markdown'
+            })
         })
+    }),
+
+    EmberBlog.routes = Em.Object.create({
+        currentRoute: null,
+
+        gotoRoute: function(routeParams) {
+            console.log('EmberBlog.routes gotoRoute. type: ' + routeParams.type + " id: " + routeParams.id);
+            if(routeParams.type === 'post' && routeParams.id) {
+                EmberBlog.PostsListController.selectPostWithId(routeParams.id);
+                EmberBlog.stateManager.goToState('showPostView');
+            } else if(routeParams.type === 'page' && routeParams.id) {
+                EmberBlog.HeaderLinksController.selectLinkWithId(routeParams.id);
+                EmberBlog.stateManager.goToState('showPageView');
+            } else if (routeParams.type === 'main') {
+                EmberBlog.stateManager.goToState('showMainView');
+                EmberBlog.PostListController.set('selectedPost', null);
+            }
+        }
     });
 
+    SC.routes.add(":type/:id", EmberBlog.routes, 'gotoRoute');
+    SC.routes.add(":type", EmberBlog.routes, 'gotoRoute');
 }, 50);

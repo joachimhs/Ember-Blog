@@ -1,0 +1,32 @@
+[
+    {
+        "id": "home",
+        "linkTitle": "Blog Posts/Home",
+        "href": "#main",
+        "linkFilename": null
+    },
+    {
+        "id": "eurekaj",
+        "linkTitle": "EurekaJ",
+        "href": "http://eurekaj.haagen.name",
+        "linkFilename": null
+    },
+    {
+        "id": "about_me",
+        "linkTitle": "About Me",
+        "href": null,
+        "linkFilename": "aboutme.md"
+    },
+    {
+        "id": "cv",
+        "linkTitle": "CV",
+        "href": null,
+        "linkFilename": "cv.md"
+    },
+    {
+        "id": "linkedin",
+        "linkTitle": "LinkedIn",
+        "href": "http://no.linkedin.com/pub/joachim-haagen-skeie/11/893/78b",
+        "linkFilename": null
+    }
+]

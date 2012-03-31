@@ -22,8 +22,9 @@ body a:hover{
     top: 0px;
     left: 0px;
     right: 0px;
-    height: 75px;
+    height: 85px;
     text-align: center;
+    background-color: #e6e6e6;
 }
 
 #header h1 {
@@ -55,17 +56,17 @@ body a:hover{
 
 #headerLinks {
     position: absolute;
-    top: 75px;
+    top: 85px;
     left: 0px;
     right: 0px;
     height: 25px;
     text-align: center;
     color: black;
-    margin-top: 15px;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.50);
+    background-color: #e6e6e6;
 }
 
-#headerLinks a {
+#headerLinks .headerLink {
     font-size: 1em;
     display: inline;
     letter-spacing: 0.11em;
@@ -75,13 +76,9 @@ body a:hover{
 }
 
 #contents {
-    position: absolute;
-    top: 115px;
-    bottom: 50px;
-    right: 250px;
-    left: 0px;
-    overflow: scroll;
     font-size: 0.9em;
+    float: left;
+    width: 75%;
 }
 
 #contents h1 {
@@ -118,7 +115,7 @@ body a:hover{
     text-align: center;
 }
 
-#post {
+#mainArea {
     position: absolute;
     top: 115px;
     bottom: 50px;
@@ -126,6 +123,15 @@ body a:hover{
     left: 0px;
     overflow: scroll;
     font-size: 0.9em;
+}
+
+#disqus {
+    float: none;
+    margin-top: 15px;
+}
+
+#post {
+    position: relative;
 }
 
 #post h1 {
@@ -140,14 +146,120 @@ body a:hover{
 }
 
 #rightArea {
-    position: absolute;
-    top:  115px;
-    bottom: 50px;
-    right: 0px;
-    width: 250px;
-    border-left: 1px solid #000;
+    overflow: scroll;
+    float: right;
+    width: 25%;
+}
+
+#rightArea h1 {
+    text-decoration: none;
+    clear: left;
+    display: block;
+    padding: 0.3em 0;
+    margin: 0 0 0.2em 0;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.miniPostIntro {
+    margin-bottom: 1em;
+    font-size: 0.8em;
+}
+
+.projectPanel h2 {
+    margin: 0 0 0.3em 0;
+    font-size: 1.3em;
+}
+.projectPanel h2 a {
+    font-weight: bold;
+    color: black;
+    letter-spacing: 0;
+}
+
+.projectPanel {
+    background: #FAD8AF;
+    border: 2px solid #B89F80;
+    padding: 0.7em 1em;
+    font-size: 0.6em;
+    letter-spacing: -0.03em;
+    margin: 0.5em 0.5em 0 0;
+    -moz-border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+    border-radius: 0.5em;
+}
+
+.projectPanel h2 {
+    margin: 0 0 0.3em 0;
+    font-size: 1.3em;
+}
+.projectPanel h2 a {
+    font-weight: bold;
+    color: black;
+    letter-spacing: 0;
+}
+
+.postView {
+    margin: 10px;
 }
 
 .hand {
     cursor: pointer;
+}
+
+.arrow-w {
+    /*
+    * In Internet Explorer, The"border-style: dashed" will never be
+    * rendered unless "(width * 5) >= border-width" is true.
+    * Since "width" is set to "0", the "dashed-border" remains
+    * invisible to the user, which renders the border just like how
+    * "border-color: transparent" renders.
+    */
+    border-style: dashed;
+    border-color: transparent;
+    border-width: 0.53em;
+    display: -moz-inline-box;
+    display: inline-block;
+    /* Use font-size to control the size of the arrow. */
+    font-size: 12px;
+    height: 0;
+    line-height: 0;
+    position: relative;
+    vertical-align: middle;
+    width: 0;
+    border-right-width: 1em;
+    border-right-style: solid;
+    border-right-color: #000;
+    margin-right: 10px;
+    text-align: left;
+}
+​
+button {
+    text-align: left;
+}
+
+#post table {
+    width: 100%;
+    border: 1px solid #000;
+    padding: 0px;
+    margin: 0px;
+}
+
+#post table tr td {
+    min-width: 150px;
+    padding: 0px;
+    margin: 0px;
+}
+
+#post table tr:nth-child(odd) {
+    background-color:#ccc;
+}
+
+#post table tr:nth-child(even) {
+    background-color:#fff;
+}
+
+#post table tr:nth-child(1) {
+    background-color: #5286ff;
+    font-weight: 900;
 }

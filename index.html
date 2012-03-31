@@ -6,23 +6,21 @@
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
     <link rel="stylesheet" href="stylesheets/master.css" type="text/css" media="screen" charset="utf-8">
-    <link rel="stylesheet" href="stylesheets/highlight.min.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="stylesheets/highlight.css" type="text/css" media="screen" charset="utf-8">
     <title>Ember Blog</title>
-
-    <script src="lib/jquery-1.7.1.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="lib/highlight.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="lib/ember-0.9.5.js" type="text/javascript" charset="utf-8"></script>
-    <script src="lib/ember-data-latest.js" type="text/javascript" charset="utf-8"></script>
-    <script src="lib/showdown.js" type="text/javascript" charset="utf-8"></script>
-    <script src="app/app.js" type="text/javascript" charset="utf-8"></script>
-    <script src="app/main.js" type="text/javascript" charset="utf-8"></script>
-    <script src="app/views.js" type="text/javascript" charset="utf-8"></script>
-    <script src="app/stateManager.js" type="text/javascript" charset="utf-8"></script>
 
     <script type="text/x-handlebars" data-template-name="post-intro-view">
         {{#with content}}
             <h2>{{postDate}}: {{postTitle}}</h2>
             {{postLongIntro}}
+        {{/with}}
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="post-small-intro-view">
+        {{#with content}}
+            <div class="miniPostIntro">
+                &gt; {{postDate}}: {{postTitle}}
+            </div>
         {{/with}}
     </script>
 
@@ -35,19 +33,38 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="right-area-view">
-        Featured Projects
+        <h1>Featured Projects</h1>
+        {{#each EmberBlog.FeaturedProjectsController.content}}
+            <div class="projectPanel"><h2><a {{bindAttr href="projectUrl"}}> &gt; {{projectTitle}}</a></h2>
+                {{projectDescription}}
+            </div>
+        {{/each}}
+
+        <h1>Recent Posts</h1>
+        {{#each EmberBlog.PostListController.content}}
+            {{view EmberBlog.PostIntroView contentBinding="this" templateName="post-small-intro-view"}}
+        {{/each}}
     </script>
 
     <script type="text/x-handlebars" data-template-name="post-view">
-        {{view EmberBlog.BackToMainView templateName="back-to-main-from-post-view"}}
         {{convertMarkdown content}}
-        {{view EmberBlog.BackToMainView templateName="back-to-main-from-post-view"}}
     </script>
 
     <script type="text/x-handlebars" data-template-name="back-to-main-from-post-view">
-        Back to Main
+        <button><span class="arrow-w"></span>Back</button>
     </script>
 
+    <script type="text/x-handlebars" data-template-name="header-links-view">
+        {{#each content}}
+            {{view EmberBlog.LinkView templateName="header-links-link-view" contentBinding="this"}}
+        {{/each}}
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="header-links-link-view">
+        {{#with content}}
+            {{linkTitle}}
+        {{/with}}
+    </script>
 </head>
 
 <body>
@@ -56,23 +73,49 @@
     <h2><a href="http://no.linkedin.com/pub/joachim-haagen-skeie/11/893/78b">by Joachim Haagen Skeie</a></h2><br/>
 </div>
 
-<div id='headerLinks'>
-    <a href="/">Blog Posts</a>
-    <a href="http://eurekaj.haagen.name">EurekaJ</a>
-    <a href="/aboutme.html">About me</a>
-    <a href="/cv.html">CV</a>
-    <a href="http://no.linkedin.com/pub/joachim-haagen-skeie/11/893/78b">LinkedIn</a>
-</div>
+<script type="text/x-handlebars">
+    {{view Ember.View elementId="headerLinks" templateName="header-links-view" contentBinding="EmberBlog.HeaderLinksController.content"}}
+</script>
+
 
 <div id="mainArea">
+    <div id="emberArea">
 
+    </div>
+
+    <div id="disqus">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'joachimhs'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
 </div>
 
 <div id='footer'>
     Copyright 2011 Joachim Haagen Skeie. Code licensed under the <a href="http://www.opensource.org/licenses/mit-license.html">MIT license</a>. Content licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons</a>.<br />
-    Built using <a href="http://emberjs.com">Ember.js</a>, <a href="http://jquery.com/">jQuery</a> and <a href="https://github.com/coreyti/showdown">Showdown</a>.
+    Built using <a href="http://emberjs.com">Ember.js</a>, <a href="http://jquery.com/">jQuery</a>, <a href="http://softwaremaniacs.org/soft/highlight/en/">Highlight.js</a> and <a href="https://github.com/coreyti/showdown">Showdown</a>.
 </div>
 
+<script src="lib/jquery-1.7.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/highlight.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/ember-0.9.5.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/ember-data-latest.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/ember-routes.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/showdown.js" type="text/javascript" charset="utf-8"></script>
+<script src="app/app.js" type="text/javascript" charset="utf-8"></script>
+<script src="app/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="app/views.js" type="text/javascript" charset="utf-8"></script>
+<script src="app/stateManager.js" type="text/javascript" charset="utf-8"></script>
 </body>
 
 </html>
