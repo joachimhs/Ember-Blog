@@ -191,7 +191,7 @@ var routes = SC.routes = Ember.Object.create(
     @property
     @type {Boolean}
   */
-  wantsHistory: false,
+  wantsHistory: true,
 
   /**
     A read-only boolean indicating whether or not HTML5 history is used. Based
@@ -224,7 +224,7 @@ var routes = SC.routes = Ember.Object.create(
     @property
     @type {String}
   */
-  baseURI: document.baseURI,
+  baseURI: 'http://localhost:8080',
 
   /** @private
     A boolean value indicating whether or not the ping method has been called

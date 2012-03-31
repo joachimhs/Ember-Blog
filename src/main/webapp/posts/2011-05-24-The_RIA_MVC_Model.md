@@ -16,7 +16,7 @@ Server-side state management and markup generation
 With the server-side models the complete MVC model resides server side. The various MVC models usually looks slightly
 like the Sun MVC Model 2:
 
-![Sub MVC Model 2](images/ria_mvc_1.png)
+![Sub MVC Model 2](/images/ria_mvc_1.png)
 
 In this model the server is responsible for managing the user state for each user currently logged into the system.
 As the number of users increase, so does the task of managing all of that intricate state for each session. The down
@@ -38,13 +38,13 @@ while leaving the server side to work on what it does best, **retrieving, persis
 
 The initialization of a RIA application usually starts with an initial request for the complete application:
 
-![Initial Request](images/ria_mvc_2.png)
+![Initial Request](/images/ria_mvc_2.png)
 
 The client will then parse the application and load up a full blown MVC model that will reside completely inside the
 browser, and might look something like the following, which is the the MVC model used by the RIA framework
 [SproutCore](http://www.sproutcore.com/):
 
-![Client MVC](images/ria_mvc_3.png)
+![Client MVC](/images/ria_mvc_3.png)
 
 Now, this is where things start to get interesting. The RIA application now has the capability to work on a local
 cache of the data, while still being able to request additional data from the server when needed in an asynchronous manner.
@@ -63,7 +63,7 @@ The V-Property
 The V-Property consists of 5 steps and describes how changes to any layer in the application will propagate out through
 to the rest of the application.
 
-![The V-Property](images/ria_mvc_4.png)
+![The V-Property](/images/ria_mvc_4.png)
 
 There are a couple of important aspects of the V-Property worth mentioning. The first is that a change can occur
 anywhere along the path, but that changes will only propagate "upwards" (in numbers), second that a step should never be
@@ -86,7 +86,7 @@ or less complex, written in Java, C, .Net, etc. as long as the server-side suppo
 a format that the client can understand. JSON is most common as the data-type, but in reality the communication format
 might be XML, CSV or any other format that can be transferred over the HTTP protocol.
 
-!![Server and Client side MVC Models](images/ria_mvc_5.png)
+![Server and Client side MVC Models](/images/ria_mvc_5.png)
 
 If we imagine having a client application that lets the user select an item form a list in the GUI. That selection (C1)
 is triggering an action on the items controller (C2), which in turn is issuing a request to the model-layer for the data

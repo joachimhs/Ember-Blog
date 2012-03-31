@@ -27,7 +27,7 @@ EmberBlog.Post = DS.Model.extend({
 });
 
 EmberBlog.Post.reopenClass({
-    url: 'posts.json'
+    url: '/posts.json'
 });
 
 EmberBlog.FeaturedProject = DS.Model.extend({
@@ -39,7 +39,7 @@ EmberBlog.FeaturedProject = DS.Model.extend({
 });
 
 EmberBlog.FeaturedProject.reopenClass({
-    url: 'featuredProjects.json'
+    url: '/featuredProjects.json'
 });
 
 EmberBlog.HeaderLink = DS.Model.extend({
@@ -49,7 +49,7 @@ EmberBlog.HeaderLink = DS.Model.extend({
 });
 
 EmberBlog.HeaderLink.reopenClass({
-    url: 'headerLinks.json'
+    url: '/headerLinks.json'
 });
 
 EmberBlog.FeaturedProjectsController = Em.ArrayProxy.create({
@@ -112,9 +112,9 @@ EmberBlog.PostController = Em.Object.create({
     contentObserver: function() {
         if (this.get('content')) {
             console.log('getting contents for Post: ' + this.get('content').get('id'));
-            var markdown = $.get("posts/" + this.get('content').get('postFilename'), function(data) {
+            var markdown = $.get("/posts/" + this.get('content').get('postFilename'), function(data) {
                 EmberBlog.PostController.set('markdown', data);
-            });
+            }, "text");
         } else {
             this.set('markdown', null);
         }
@@ -157,9 +157,9 @@ EmberBlog.PageController = Em.Object.create({
     contentObserver: function() {
         if (this.get('content')) {
             console.log('getting contents for Link: ' + this.get('content').get('linkFilename'));
-            var markdown = $.get("pages/" + this.get('content').get('linkFilename'), function(data) {
+            var markdown = $.get("/pages/" + this.get('content').get('linkFilename'), function(data) {
                 EmberBlog.PageController.set('markdown', data);
-            });
+            }, "text");
         } else {
             this.set('markdown', null);
         }

@@ -43,7 +43,7 @@ Now that we have an initialized statechart in place, it is time to have a look a
 Implementing the EurekaJ Main Statechart
 ----------------------------------------
 
-![Statechart Implementation](images/statechart_implementation1.png)
+![Statechart Implementation](/images/statechart_implementation1.png)
 
 The application starts out in the "loggedOut" state, which is the "initialSubstate". From there on it can perform a single action, "authenticate". The Authenticate method has two outcomes, "authenticationFailed" and "authenticationSucceeded". The first of which will send the user back to the "showingLoginPanel", while the latter will change state to the "loggedIn" state, which is where most of the application takes place. (Logging in and Authentication is not yet implemented in EurekaJ as of Januray 2011, but will be in place before EurekaJ reached version 1.0). 
 
@@ -180,4 +180,4 @@ The code below is using SproutCore from the master branch (1.5), which have Stat
     });
 
 <h2>Graphical User Interface</h2>
-![Statechart GUI](images/statechart_gui1.png)
+![Statechart GUI](/images/statechart_gui1.png)

@@ -42,7 +42,7 @@ EmberBlog.BackToMainView = Ember.View.extend({
     classNames: ['hand'],
 
     click: function() {
-        SC.routes.set("location", "main");
+        SC.routes.set("location", "/");
     }
 });
 

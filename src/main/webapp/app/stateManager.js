@@ -26,6 +26,7 @@ setTimeout(function() {
         showMainView: Ember.ViewState.create({
             enter: function(stateManager) {
                 this._super(stateManager);
+                console.log('ENTER');
                 EmberBlog.PostsListController.set('content', EmberBlog.store.findAll(EmberBlog.Post));
                 EmberBlog.FeaturedProjectsController.set('content', EmberBlog.store.findAll(EmberBlog.FeaturedProject));
                 EmberBlog.HeaderLinksController.set('content', EmberBlog.store.findAll(EmberBlog.HeaderLink));
@@ -70,12 +71,21 @@ setTimeout(function() {
             console.log('EmberBlog.routes gotoRoute. type: ' + routeParams.type + " id: " + routeParams.id);
             if(routeParams.type === 'post' && routeParams.id) {
                 EmberBlog.PostsListController.selectPostWithId(routeParams.id);
+                ember_disqus_identifier = '/post/' + routeParams.id ;
+                ember_disqus_url = 'http://haagen.name/post/' + routeParams.id ;
+                ember_disqus_title = routeParams.id;
                 EmberBlog.stateManager.goToState('showPostView');
             } else if(routeParams.type === 'page' && routeParams.id) {
                 EmberBlog.HeaderLinksController.selectLinkWithId(routeParams.id);
+                ember_disqus_identifier = '/page/' + routeParams.id ;
+                ember_disqus_url = 'http://haagen.name/page/' + routeParams.id ;
+                ember_disqus_title = routeParams.id;
                 EmberBlog.stateManager.goToState('showPageView');
             } else if (routeParams.type === 'main') {
                 EmberBlog.stateManager.goToState('showMainView');
+                ember_disqus_identifier = '/main';
+                ember_disqus_url = 'http://haagen.name/'
+                ember_disqus_title = 'Haagen.name';
                 EmberBlog.PostListController.set('selectedPost', null);
             }
         }

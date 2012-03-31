@@ -5,7 +5,7 @@ In the SproutCore client I wanted to display a customized icon for the leaf node
 Each node has a "nodeType" parameter that can either be "chart", "alert" og "groupedStatistic", and I wanted to display
 a custom icon for each of the different nodes like this:
 
-![SproutCore TreeNode](images/sproutcore_treenode1.png)
+![SproutCore TreeNode](/images/sproutcore_treenode1.png)
 
 As you can see from the image above, the chart nodes have a image of a chart, the alert node of a warning triangle while
 the Grouped Statistics node has an icon with a "G" in it.

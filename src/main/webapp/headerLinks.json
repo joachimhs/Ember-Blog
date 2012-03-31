@@ -2,7 +2,7 @@
     {
         "id": "home",
         "linkTitle": "Blog Posts/Home",
-        "href": "#main",
+        "href": "/",
         "linkFilename": null
     },
     {

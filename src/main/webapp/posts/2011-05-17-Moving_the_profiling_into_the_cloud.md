@@ -33,7 +33,7 @@ The profiling architecture consists of 4 main parts that needs to be in place in
 - The EurekaJ Proxy - Parsing BTrace tracelogs and passing the metrics along to EurekaJ Manager
 - The EurekaJ Manager - Collecting the metrics, analysing, visualising and alerting upon those metrics
 
-![EurekaJ Cloud Architecture](images/blog_cloud_eurekaj_architecture.png)
+![EurekaJ Cloud Architecture](/images/blog_cloud_eurekaj_architecture.png)
 
 The only real difference between running EurekaJ Manager on a local server on the LAN and running it on Amazon Elastic
 Compute Cloud (EC2), is the fact that we are utilizing the Amazon Elastic Block Store, a safe, reliable, persistent and
@@ -111,7 +111,7 @@ statistics at the moment. This will be fixed during the beta-stage of EurekaJ. I
 from another application, the [JSFlot Demonstration application](http://jsflotdemo.haagen.name).
 The JSFlot demonstration application is running on its own MacMini, outside of Amazons AWS network.
 
-![EurekaJ Memory Chart](images/eurekaj_memory_chart.png)
+![EurekaJ Memory Chart](/images/eurekaj_memory_chart.png)
 
 Downloading EurekaJ
 -------------------
