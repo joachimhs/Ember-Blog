@@ -72,20 +72,20 @@ setTimeout(function() {
             if(routeParams.type === 'post' && routeParams.id) {
                 EmberBlog.PostsListController.selectPostWithId(routeParams.id);
                 ember_disqus_identifier = '/post/' + routeParams.id ;
-                ember_disqus_url = 'http://haagen.name/post/' + routeParams.id ;
                 ember_disqus_title = routeParams.id;
+                document.title = 'Haagen.name - ' + routeParams.id;
                 EmberBlog.stateManager.goToState('showPostView');
             } else if(routeParams.type === 'page' && routeParams.id) {
                 EmberBlog.HeaderLinksController.selectLinkWithId(routeParams.id);
                 ember_disqus_identifier = '/page/' + routeParams.id ;
-                ember_disqus_url = 'http://haagen.name/page/' + routeParams.id ;
+                document.title = 'Haagen.name - ' + routeParams.id;
                 ember_disqus_title = routeParams.id;
                 EmberBlog.stateManager.goToState('showPageView');
             } else if (routeParams.type === 'main') {
                 EmberBlog.stateManager.goToState('showMainView');
                 ember_disqus_identifier = '/main';
-                ember_disqus_url = 'http://haagen.name/'
                 ember_disqus_title = 'Haagen.name';
+                document.title = 'Haagen.name - Home';
                 EmberBlog.PostListController.set('selectedPost', null);
             }
         }
