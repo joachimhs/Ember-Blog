@@ -171,25 +171,10 @@ public class JettyServer {
 			System.setProperty("jetty.maxThreads", "150");
 			log.info(" * Property 'jetty.maxThreads' is not specified. Using default: 150 Configure in file config.properties.");
 		}
-		
-		if (System.getProperty("org.eurekaj.deleteStatsOlderThanDays") == null) {
-			System.setProperty("org.eurekaj.deleteStatsOlderThanDays", "30");
-			log.info(" * Property 'org.eurekaj.deleteStatsOlderThanDays' is not specified. Using default: 30 Configure in file config.properties.");
-		}
-		
-		if (System.getProperty("eurekaj.db.type") == null) {
-			System.setProperty("eurekaj.db.type", "BerkeleyHour");
-			log.info(" * Property 'eurekaj.db.type' is not specified. Using default: 'BerkeleyHour' Configure in file config.properties.");
-		}
-		
+
 		if (System.getProperty("context.root") == null) {
 			System.setProperty("context.root", "");
 			log.info(" * Property 'context.root' is not specified. Using default: '' Configure in file config.properties.");
-		}
-		
-		if (System.getProperty("eurekaj.db.absPath") == null) {
-			System.setProperty("eurekaj.db.absPath", "data");
-			log.info(" * Property 'eurekaj.db.absPath' is not specified. Using default: 'data' Configure in file config.properties.");
 		}
 	}
 

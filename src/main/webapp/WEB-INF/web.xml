@@ -4,6 +4,23 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
                        http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
+    <context-param>
+        <param-name>org.eclipse.jetty.servlet.Default.gzip</param-name>
+        <param-value>true</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>LibServlet</servlet-name>
+        <servlet-class>no.joachimhs.servlets.LibServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>AppServlet</servlet-name>
+        <servlet-class>no.joachimhs.servlets.AppServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    
     <servlet>
         <servlet-name>IndexServlet</servlet-name>
         <servlet-class>no.joachimhs.servlets.IndexServlet</servlet-class>
@@ -17,13 +34,34 @@
 
     <servlet-mapping>
         <servlet-name>IndexServlet</servlet-name>
-        <url-pattern>//post/*</url-pattern>
+        <url-pattern>/page/*</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
-        <servlet-name>IndexServlet</servlet-name>
-        <url-pattern>/page/*</url-pattern>
+        <servlet-name>LibServlet</servlet-name>
+        <url-pattern>/lib/*</url-pattern>
     </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AppServlet</servlet-name>
+        <url-pattern>/app/*</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>GzipFilter</filter-name>
+        <filter-class>org.eclipse.jetty.servlets.GzipFilter</filter-class>
+        <init-param>
+            <param-name>mimeTypes</param-name>
+            <param-value>
+                text/html,text/plain,text/xml,application/json,application/xhtml+xml,text/css,application/javascript,image/svg+xml,application/x-javascript
+            </param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>GzipFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>

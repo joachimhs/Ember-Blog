@@ -17,13 +17,20 @@ import java.net.URL;
  * Time: 12:36 PM
  * To change this template use File | Settings | File Templates.
  */
-public class IndexServlet extends HttpServlet {
+public class LibServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("Getting index.html");
         String htmlContent = null;
 
-        URL resource = getServletContext().getResource("/index.html");
+        String reqUrl = req.getRequestURI().toString();
+        String urlParts[] = reqUrl.split("/");
+        String libName = null;
+        if (urlParts.length == 3) {
+            libName = urlParts[2];
+        }
+
+        System.out.println("Getting Lib file: " + libName);
+        URL resource = getServletContext().getResource("/lib/" + libName);
         File file = new File(resource.getPath());
         htmlContent = ParseFileUtil.getFileContents(file);
 
