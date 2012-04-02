@@ -19,6 +19,10 @@ EmberBlog = Ember.Application.create({
     }
 });
 
+EmberBlog.performLink = function(pageType, linkid) {
+    SC.routes.set("location", pageType + "/" + linkid);
+}
+
 EmberBlog.Adapter = DS.Adapter.create({
     findAll: function(store, type) {
         var url = type.url;

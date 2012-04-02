@@ -23,7 +23,14 @@ EmberBlog.Post = DS.Model.extend({
     postTitle: DS.attr('string'),
     postDate: DS.attr('string'),
     postShortIntro: DS.attr('string'),
-    postLongIntro: DS.attr('string')
+    postLongIntro: DS.attr('string'),
+    postFullUrl: function() {
+        console.log('postFullURL');
+        return "/post/" + this.get('id');
+    }.property('id').cacheable(),
+    linkClickString: function() {
+        return "EmberBlog.performLink('post', '" + this.get('id') + "'); return false;";
+    }.property('id').cacheable()
 });
 
 EmberBlog.Post.reopenClass({
@@ -45,7 +52,13 @@ EmberBlog.FeaturedProject.reopenClass({
 EmberBlog.HeaderLink = DS.Model.extend({
     primaryKey: 'id',
     linkTitle: DS.attr('string'),
-    href: DS.attr('string')
+    href: DS.attr('string'),
+    fullHref: function() {
+        return "/page/" + this.get('id');
+    }.property('id').cacheable(),
+    linkClickString: function() {
+        return "EmberBlog.performLink('page', '" + this.get('id') + "'); return false;";
+    }.property('id').cacheable()
 });
 
 EmberBlog.HeaderLink.reopenClass({

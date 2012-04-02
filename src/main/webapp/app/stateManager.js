@@ -26,7 +26,6 @@ setTimeout(function() {
         showMainView: Ember.ViewState.create({
             enter: function(stateManager) {
                 this._super(stateManager);
-                console.log('ENTER');
                 EmberBlog.PostsListController.set('content', EmberBlog.store.findAll(EmberBlog.Post));
                 EmberBlog.FeaturedProjectsController.set('content', EmberBlog.store.findAll(EmberBlog.FeaturedProject));
                 EmberBlog.HeaderLinksController.set('content', EmberBlog.store.findAll(EmberBlog.HeaderLink));
