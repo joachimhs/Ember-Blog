@@ -20,8 +20,8 @@
     {
         "id": "cv",
         "linkTitle": "CV",
-        "href": null,
-        "linkFilename": "cv.md"
+        "href": "/cv",
+        "linkFilename": null
     },
     {
         "id": "linkedin",

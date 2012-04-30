@@ -1,0 +1,50 @@
+[
+    {
+        "id": 8,
+        "publicationDate": "November 2010",
+        "title": "Introduction to Android",
+        "description": "1-Day course in Android Development with Peter Andreasson"
+    },
+    {
+        "id": 7,
+        "publicationDate": "November 2009",
+        "title": "Test Driven Development",
+        "description": "3-Day course in TDD with Andy Olsen"
+    },
+    {
+        "id": 6,
+        "publicationDate": "September 2009",
+        "title": "Agile Testing",
+        "description": "3-Day course in Agile Testing with Lisa Crispin"
+    },
+    {
+        "id": 5,
+        "publicationDate": "August 2008",
+        "title": "ScrumMaster Certification",
+        "description": "2-Day ScrumMaster Certification with Mike Cohn"
+    },
+    {
+        "id": 4,
+        "publicationDate": "May 2008",
+        "title": "Java Enterprise Edition",
+        "description": "5-Day course in Java Enterprise Edition with Andy Olsen"
+    },
+    {
+        "id": 3,
+        "publicationDate": "September 2007",
+        "title": "Lean Software Development",
+        "description": "2-Day course in Lean Software Development with Mary and Tom Poppendieck"
+    },
+    {
+        "id": 2,
+        "publicationDate": "June 2007",
+        "title": "Test Driven Development (TDD)",
+        "description": "1-day course in TDD with Robert C. Martin"
+    },
+    {
+        "id": 1,
+        "publicationDate": "March 2006",
+        "title": " Spring and Hibernate for Java",
+        "description": "3-day course in Spring and Hibernate for Java with Mårten Hagling."
+    }
+]

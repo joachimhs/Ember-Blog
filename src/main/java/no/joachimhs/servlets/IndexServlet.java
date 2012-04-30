@@ -27,6 +27,7 @@ public class IndexServlet extends HttpServlet {
         File file = new File(resource.getPath());
         htmlContent = ParseFileUtil.getFileContents(file);
 
+        response.setContentType("text/html");
         response.getWriter().write(htmlContent);
     }
 }

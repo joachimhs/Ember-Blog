@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "period": "1. Feb 2005 - 1. July 2006",
+        "title": "Master of Information Technology",
+        "description": "Graduated with the Dean's List Award for Academic Excellence",
+        "location": "Queensland University of Technology"
+    },
+    {
+        "id": 2,
+        "period": "1. Jan 2002 - 31. Des 2004",
+        "title": "Bachelor of Information Technology",
+        "description": "",
+        "location": "Queensland University of Technology"
+    }
+]

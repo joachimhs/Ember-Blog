@@ -1,0 +1,23 @@
+[
+    {
+        "id": 3,
+        "period": "2008 - present",
+        "title": "EurekaJ",
+        "description": "Design and development the Open Source Profiler tool for Java Applications, EurekaJ. EurekaJ integrates with BTrace from Oracle (also Open Source) in order to provide the user with detailed metrics regarding the operation of any Java Application in either Development, Test or in Production",
+        "client": "Spare-time"
+    },
+    {
+        "id": 2,
+        "period": "2009",
+        "title": "BTrace",
+        "description": "BTrace is a safe, dynamic tracing tool for the Java platform. BTrace can be used to dynamically trace a running Java program (similar to DTrace for OpenSolaris applications and OS).",
+        "client": "Spare-time"
+    },
+    {
+        "id": 1,
+        "period": "2008, 2009",
+        "title": "JSFlot",
+        "description": "Development of an open source JavaServer Faces charting library. Hosted at Google Code, under the MIT license.",
+        "client": "Spare-time"
+    }
+]

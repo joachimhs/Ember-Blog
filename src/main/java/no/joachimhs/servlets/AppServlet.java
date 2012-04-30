@@ -34,6 +34,7 @@ public class AppServlet extends HttpServlet {
         File file = new File(resource.getPath());
         htmlContent = ParseFileUtil.getFileContents(file);
 
+        response.setContentType("text/JavaScript");
         response.getWriter().write(htmlContent);
     }
 }

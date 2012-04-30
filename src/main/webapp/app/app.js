@@ -34,6 +34,17 @@ EmberBlog.Adapter = DS.Adapter.create({
             console.log('getting from url: ' + url + ' length: ' + data.length);
             store.loadMany(type, data);
         });
+    },
+
+    find: function(store, type, id) {
+        var url = type.url;
+
+        jQuery.getJSON(url, function(data) {
+            // data is a Hash of key/value pairs. If your server returns a
+            // root, simply do something like:
+            // store.load(type, id, data.person)
+            store.load(type, id, data);
+        });
     }
 });
 
@@ -42,6 +53,7 @@ EmberBlog.store = DS.Store.create({
 });
 
 Handlebars.registerHelper('convertMarkdown', function(property) {
+    console.log(property);
     var value = Ember.getPath(this, property);
     if (value) {
         var converter = new Showdown.converter();
@@ -57,3 +69,9 @@ Handlebars.registerHelper('disqus', function(property) {
     return new Ember.Handlebars.compile(value);
 });
 
+Handlebars.registerHelper('semiColonToNewline', function(property) {
+    console.log(property);
+    var value = Ember.getPath(this, property);
+    console.log(value);
+    return new Ember.Handlebars.compile(value);
+});

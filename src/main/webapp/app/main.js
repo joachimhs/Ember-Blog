@@ -20,14 +20,15 @@
 
 EmberBlog.Post = DS.Model.extend({
     primaryKey: 'id',
+    id: DS.attr('string'),
     postTitle: DS.attr('string'),
     postDate: DS.attr('string'),
     postShortIntro: DS.attr('string'),
     postLongIntro: DS.attr('string'),
     postFullUrl: function() {
-        console.log('postFullURL');
         return "/post/" + this.get('id');
     }.property('id').cacheable(),
+
     linkClickString: function() {
         return "EmberBlog.performLink('post', '" + this.get('id') + "'); return false;";
     }.property('id').cacheable()
@@ -64,6 +65,104 @@ EmberBlog.HeaderLink = DS.Model.extend({
 EmberBlog.HeaderLink.reopenClass({
     url: '/headerLinks.json'
 });
+
+EmberBlog.CVData = DS.Model.extend({
+    primaryKey: 'id',
+    id: DS.attr('string'),
+    about: DS.hasMany('EmberBlog.DataString', { embedded: true }),
+    languages: DS.hasMany('EmberBlog.DataString', { embedded: true }),
+    programming: DS.hasMany('EmberBlog.DataString', { embedded: true }),
+    interest: DS.attr('string'),
+    education: DS.hasMany('EmberBlog.EducationData', { key: 'educationIDs' }),
+    experience: DS.hasMany('EmberBlog.ExperienceData', { key: 'experienceIDs' }),
+    project: DS.hasMany('EmberBlog.ProjectData', { key: 'projectIDs' }),
+    opensource: DS.hasMany('EmberBlog.OpenSourceData', { key: 'opensourceIDs' }),
+    publication: DS.hasMany('EmberBlog.PublicationData', {key: 'publicationIDs'}),
+    course: DS.hasMany('EmberBlog.CourseData', {key: 'courseIDs'})
+});
+
+EmberBlog.CVData.reopenClass({
+    url: '/cvdata.json'
+});
+
+EmberBlog.DataString = DS.Model.extend({
+   id: DS.attr('string')
+});
+
+EmberBlog.EducationData = DS.Model.extend({
+    primaryKey: 'id',
+    id: DS.attr('string'),
+    period: DS.attr('string'),
+    title: DS.attr('string'),
+    description: DS.attr('string')
+});
+
+EmberBlog.EducationData.reopenClass({
+    url: '/education.json'
+});
+
+EmberBlog.ExperienceData = DS.Model.extend({
+    primaryKey: 'id',
+    id: DS.attr('string'),
+    period: DS.attr('string'),
+    title: DS.attr('string'),
+    description: DS.attr('string')
+});
+
+EmberBlog.ExperienceData.reopenClass({
+    url: '/experience.json'
+});
+
+EmberBlog.ProjectData = DS.Model.extend({
+    primaryKey: 'id',
+    id: DS.attr('string'),
+    period: DS.attr('string'),
+    title: DS.attr('string'),
+    description: DS.attr('string'),
+    client: DS.attr('string')
+});
+
+EmberBlog.ProjectData.reopenClass({
+    url: '/projects.json'
+});
+
+EmberBlog.OpenSourceData = DS.Model.extend({
+    primaryKey: 'id',
+    id: DS.attr('string'),
+    period: DS.attr('string'),
+    title: DS.attr('string'),
+    description: DS.attr('string'),
+    client: DS.attr('string')
+});
+
+EmberBlog.OpenSourceData.reopenClass({
+    url: '/opensource.json'
+});
+
+EmberBlog.PublicationData = DS.Model.extend({
+    primaryKey: 'id',
+    id: DS.attr('string'),
+    publicationDate: DS.attr('string'),
+    title: DS.attr('string'),
+    description: DS.attr('string')
+});
+
+EmberBlog.PublicationData.reopenClass({
+    url: '/publications.json'
+});
+
+EmberBlog.CourseData = DS.Model.extend({
+    primaryKey: 'id',
+    id: DS.attr('string'),
+    publicationDate: DS.attr('string'),
+    title: DS.attr('string'),
+    description: DS.attr('string')
+});
+
+EmberBlog.CourseData.reopenClass({
+    url: '/courses.json'
+});
+
 
 EmberBlog.FeaturedProjectsController = Em.ArrayProxy.create({
     content: []
@@ -176,5 +275,13 @@ EmberBlog.PageController = Em.Object.create({
         } else {
             this.set('markdown', null);
         }
+    }.observes('content')
+});
+
+EmberBlog.CVDataController = Em.Object.create({
+   content: null,
+
+    contentObserver: function() {
+        console.log('loading CV Data');
     }.observes('content')
 });

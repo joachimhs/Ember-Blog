@@ -38,6 +38,11 @@
     </servlet-mapping>
 
     <servlet-mapping>
+        <servlet-name>IndexServlet</servlet-name>
+        <url-pattern>/cv</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
         <servlet-name>LibServlet</servlet-name>
         <url-pattern>/lib/*</url-pattern>
     </servlet-mapping>

@@ -60,9 +60,34 @@ setTimeout(function() {
                 elementId: 'post',
                 contentBinding: 'EmberBlog.PageController.markdown'
             })
-        })
-    }),
+        }),
 
+        showCV: Ember.ViewState.create({
+            enter: function(stateManager) {
+                this._super(stateManager);
+                //jQuery.getJSON(EmberBlog.CVData.url, function(data) {
+                //    EmberBlog.CVDataController.set('content', data);
+                //})
+                EmberBlog.store.findAll(EmberBlog.EducationData);
+                EmberBlog.store.findAll(EmberBlog.ExperienceData);
+                EmberBlog.store.findAll(EmberBlog.ProjectData);
+                EmberBlog.store.findAll(EmberBlog.OpenSourceData);
+                EmberBlog.store.findAll(EmberBlog.PublicationData);
+                EmberBlog.store.findAll(EmberBlog.CourseData);
+                EmberBlog.store.findAll(EmberBlog.CVData);
+                EmberBlog.CVDataController.set('content', EmberBlog.store.find(EmberBlog.CVData, 1));
+            },
+
+            view: Ember.View.create({
+                elementId: 'curriculumvitae',
+                contentBinding: 'EmberBlog.CVDataController.content',
+                templateName: 'main-cv-view'
+            })
+        })
+    })
+}, 50);
+
+setTimeout(function() {
     EmberBlog.routes = Em.Object.create({
         currentRoute: null,
 
@@ -86,10 +111,12 @@ setTimeout(function() {
                 ember_disqus_title = 'Haagen.name';
                 document.title = 'Haagen.name - Home';
                 EmberBlog.PostListController.set('selectedPost', null);
+            } else if (routeParams.type === 'cv') {
+                EmberBlog.stateManager.goToState('showCV');
             }
         }
     });
 
     SC.routes.add(":type/:id", EmberBlog.routes, 'gotoRoute');
     SC.routes.add(":type", EmberBlog.routes, 'gotoRoute');
-}, 50);
+}, 250)

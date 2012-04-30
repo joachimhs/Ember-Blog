@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "period": "1. Nov 2010 - 31. Jul 2012",
+        "title": "Kantega",
+        "description": "Co-owner and Senior Consultant within Java and Web Technologies. For Projects, see Projects below.",
+        "location": "Oslo, Norway"
+    },
+    {
+        "id": 2,
+        "period": "25. Jul 2006 - 30. Oct 2010",
+        "title": "NorgesGruppen Data AS",
+        "description": "Worked on B2B applications as a Systems Architect to support automatic store replenishement of norways largest retailer within food and groceries. Technical leadership of two seperate teams encompassing a total of 11 team mates.",
+        "location": "Oslo, Norway"
+    },
+    {
+        "id": 3,
+        "period": "13. Des 2004 - 4. Feb 2005",
+        "title": "NorgesGruppen Data AS",
+        "description": "Worked as a temporary employee (60-100%)over Christmas 2004 as a J2EE developer. Tasks included assessment and comparison of web-based frameworks for writing reusable web components in an existing application, as well as outlining a migration path from their existing approach to the recommended framework.",
+        "location": "Oslo, Norway"
+    }
+]

@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "period": "Nov 2010 - Present",
+        "title": "IT Achitect, Software Developer",
+        "description": "Development lead for an application for analyzing oil spill for creating risk assessments and oil spill contingency analysis and planning.",
+        "client": "Akvaplan Niva SensE"
+    },
+    {
+        "id": 2,
+        "period": "Nov 2010 - Des 2011",
+        "title": "Software Developer, IT Performance Architect",
+        "description": "Systems Developer (11 months) on the Norwegian Public Service Pension Funds PERFORM project. Took part of development for a new case work system on a new technology platform for the introduction of the new pension scheme on 01.01. 2011. Woked as a Perfomance Architect for 2 months untill December 2011.",
+        "client": "The Norwigina Public Service Pension Fund"
+    }
+]

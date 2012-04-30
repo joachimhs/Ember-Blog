@@ -263,3 +263,65 @@ button {
     background-color: #5286ff;
     font-weight: 900;
 }
+
+#curriculumvitae {
+    text-align: left;
+}
+
+#curriculumvitae h1 {
+    margin-top: 5px;
+    text-align: center;
+}
+
+#leftCV {
+    text-align: right;
+    position:absolute;
+    left: 0px;
+    width: 300px;
+    top: 50px;
+    bottom: 0px;
+    float: left;
+    margin: 15px;
+    font-weight: lighter;
+    letter-spacing: normal;
+}
+
+#rigthCV {
+    text-align: left;
+    position:absolute;
+    left: 320px;
+    right: 0px;
+    top: 50px;
+    bottom: 0px;
+    margin: 15px;
+    font-weight: lighter;
+    letter-spacing: normal;
+}
+
+#rigthCV h1 {
+    text-align: left;
+    letter-spacing: -0.08em;
+    font-weight: normal;
+    margin: 0px;
+    margin-top: 15px;
+    padding: 0px;
+    color: #000000;
+}
+
+#leftCV h1 {
+    text-align: right;
+    letter-spacing: -0.08em;
+    font-weight: normal;
+    margin: 0px;
+    margin-top: 15px;
+    padding: 0px;
+    color: #000000;
+}
+
+.cvtable {
+
+}
+.cvtable tr td {
+    vertical-align: top;
+    min-width: 200px;
+}

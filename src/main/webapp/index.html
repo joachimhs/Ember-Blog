@@ -11,8 +11,8 @@
 
     <script type="text/x-handlebars" data-template-name="post-intro-view">
         {{#with content}}
-            <h2>{{postDate}}: {{postTitle}}</h2>
-            {{postLongIntro}}
+        <h2>{{postDate}}: {{postTitle}}</h2>
+        {{postLongIntro}}
         {{/with}}
     </script>
 
@@ -69,6 +69,100 @@
             {{else}}
                 <a {{bindAttr href="fullHref"}} {{bindAttr onclick="linkClickString"}}>{{linkTitle}}</a>
             {{/if}}
+        {{/with}}
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="main-cv-view">
+        <h1>Curriculum Vitae</h1>
+        {{#with content}}
+            {{view Ember.View elementId="leftCV" templateName="left-cv-view" contentBinding="this"}}
+            {{view Ember.View elementId="rigthCV" templateName="right-cv-view" contentBinding="this"}}
+        {{/with}}
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="left-cv-view">
+        <h1>about</h1>
+        {{#each content.about}}
+            {{id}}<br/>
+        {{/each}}
+
+        <h1>languages</h1>
+        {{#each content.languages}}
+            {{id}}</br />
+        {{/each}}
+
+        <h1>programming</h1>
+        {{#each content.programming}}
+            {{id}}<br/>
+        {{/each}}
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="right-cv-view">
+        {{#with content}}
+            <h1>interest</h1>
+            {{interest}}
+
+            <h1>education</h1>
+            <table class="cvtable">
+            {{#each education}}
+                <tr>
+                    <td>{{period}}</td>
+                    <td><span style="font-weight: 900;">{{title}}</span><br/>{{description}}</td>
+                    <td>{{location}}</td>
+                </tr>
+            {{/each}}
+            </table>
+
+        <h1>experience</h1>
+        <table class="cvtable">
+            {{#each experience}}
+            <tr>
+                <td>{{period}}</td>
+                <td><span style="font-weight: 900;">{{title}}</span><br/>{{description}}</td>
+            </tr>
+            {{/each}}
+        </table>
+
+        <h1>projects</h1>
+        <table class="cvtable">
+            {{#each project}}
+            <tr>
+                <td>{{period}}</td>
+                <td><span style="font-weight: 900;">{{title}}</span><br/>{{description}}</td>
+                <td>{{client}}</td>
+            </tr>
+            {{/each}}
+        </table>
+
+        <h1>open source</h1>
+        <table class="cvtable">
+            {{#each opensource}}
+            <tr>
+                <td>{{period}}</td>
+                <td><span style="font-weight: 900;">{{title}}</span><br/>{{description}}</td>
+            </tr>
+            {{/each}}
+        </table>
+
+        <h1>publications and presentations</h1>
+        <table class="cvtable">
+            {{#each publication}}
+            <tr>
+                <td>{{publicationDate}}</td>
+                <td><span style="font-weight: 900;">{{title}}</span><br/>{{description}}</td>
+            </tr>
+            {{/each}}
+        </table>
+
+        <h1>courses and certifications</h1>
+        <table class="cvtable">
+            {{#each course}}
+            <tr>
+                <td>{{publicationDate}}</td>
+                <td><span style="font-weight: 900;">{{title}}</span><br/>{{description}}</td>
+            </tr>
+            {{/each}}
+        </table>
         {{/with}}
     </script>
 </head>

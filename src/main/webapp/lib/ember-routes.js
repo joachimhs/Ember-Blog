@@ -201,7 +201,7 @@ var routes = SC.routes = Ember.Object.create(
     @property
     @type {Boolean}
   */
-  usesHistory: null,
+  usesHistory: true,
 
   /**
     The base URI used to resolve routes (which are relative URLs). Only used
@@ -224,7 +224,7 @@ var routes = SC.routes = Ember.Object.create(
     @property
     @type {String}
   */
-  baseURI: 'http://haagen.name',
+  baseURI: 'http://localhost:8080',
 
   /** @private
     A boolean value indicating whether or not the ping method has been called
