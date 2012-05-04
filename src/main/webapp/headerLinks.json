@@ -28,5 +28,11 @@
         "linkTitle": "LinkedIn",
         "href": "http://no.linkedin.com/pub/joachim-haagen-skeie/11/893/78b",
         "linkFilename": null
+    },
+    {
+        "id": "github",
+        "linkTitle": "SourceCode @ GitHub!",
+        "href": "https://github.com/joachimhs/Ember-Blog",
+        "linkFilename": null
     }
 ]
