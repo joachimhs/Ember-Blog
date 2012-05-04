@@ -286,7 +286,7 @@ button {
     letter-spacing: normal;
 }
 
-#rigthCV {
+#rightCV {
     text-align: left;
     position:absolute;
     left: 320px;
@@ -298,7 +298,7 @@ button {
     letter-spacing: normal;
 }
 
-#rigthCV h1 {
+#rightCV h1 {
     text-align: left;
     letter-spacing: -0.08em;
     font-weight: normal;
@@ -316,6 +316,10 @@ button {
     margin-top: 15px;
     padding: 0px;
     color: #000000;
+}
+
+.cvheadlinecolor {
+    color: #f00;
 }
 
 .cvtable {

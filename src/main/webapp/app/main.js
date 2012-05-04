@@ -94,7 +94,8 @@ EmberBlog.EducationData = DS.Model.extend({
     id: DS.attr('string'),
     period: DS.attr('string'),
     title: DS.attr('string'),
-    description: DS.attr('string')
+    description: DS.attr('string'),
+    link: DS.attr('string')
 });
 
 EmberBlog.EducationData.reopenClass({
@@ -106,7 +107,8 @@ EmberBlog.ExperienceData = DS.Model.extend({
     id: DS.attr('string'),
     period: DS.attr('string'),
     title: DS.attr('string'),
-    description: DS.attr('string')
+    description: DS.attr('string'),
+    link: DS.attr('string')
 });
 
 EmberBlog.ExperienceData.reopenClass({
@@ -119,7 +121,8 @@ EmberBlog.ProjectData = DS.Model.extend({
     period: DS.attr('string'),
     title: DS.attr('string'),
     description: DS.attr('string'),
-    client: DS.attr('string')
+    client: DS.attr('string'),
+    link: DS.attr('string')
 });
 
 EmberBlog.ProjectData.reopenClass({
@@ -132,7 +135,8 @@ EmberBlog.OpenSourceData = DS.Model.extend({
     period: DS.attr('string'),
     title: DS.attr('string'),
     description: DS.attr('string'),
-    client: DS.attr('string')
+    client: DS.attr('string'),
+    link: DS.attr('string')
 });
 
 EmberBlog.OpenSourceData.reopenClass({
@@ -144,7 +148,9 @@ EmberBlog.PublicationData = DS.Model.extend({
     id: DS.attr('string'),
     publicationDate: DS.attr('string'),
     title: DS.attr('string'),
-    description: DS.attr('string')
+    description: DS.attr('string'),
+    link: DS.attr('string'),
+    location: DS.attr('string')
 });
 
 EmberBlog.PublicationData.reopenClass({
@@ -156,7 +162,8 @@ EmberBlog.CourseData = DS.Model.extend({
     id: DS.attr('string'),
     publicationDate: DS.attr('string'),
     title: DS.attr('string'),
-    description: DS.attr('string')
+    description: DS.attr('string'),
+    link: DS.attr('string')
 });
 
 EmberBlog.CourseData.reopenClass({

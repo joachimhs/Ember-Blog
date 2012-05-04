@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="/stylesheets/highlight.css" type="text/css" media="screen" charset="utf-8">
     <title>Haagen.name - Home</title>
 
+    <script type="text/javascript" charset="utf-8">
+        var colorArray = ["#f35", "#c3d", "#0f3", "#41c", "#ca5", "#947", "#1ce", "#f0d", "#ff0", "#00f", "#bae", "#dd8"];
+    </script>
     <script type="text/x-handlebars" data-template-name="post-intro-view">
         {{#with content}}
         <h2>{{postDate}}: {{postTitle}}</h2>
@@ -75,13 +78,13 @@
     <script type="text/x-handlebars" data-template-name="main-cv-view">
         <h1>Curriculum Vitae</h1>
         {{#with content}}
-            {{view Ember.View elementId="leftCV" templateName="left-cv-view" contentBinding="this"}}
-            {{view Ember.View elementId="rigthCV" templateName="right-cv-view" contentBinding="this"}}
+            {{view EmberBlog.CVView elementId="leftCV" templateName="left-cv-view" contentBinding="this"}}
+            {{view EmberBlog.CVView elementId="rightCV" templateName="right-cv-view" contentBinding="this"}}
         {{/with}}
     </script>
 
     <script type="text/x-handlebars" data-template-name="left-cv-view">
-        <h1>about</h1>
+        <h1>about me</h1>
         {{#each content.about}}
             {{id}}<br/>
         {{/each}}
@@ -107,7 +110,12 @@
             {{#each education}}
                 <tr>
                     <td>{{period}}</td>
-                    <td><span style="font-weight: 900;">{{title}}</span><br/>{{description}}</td>
+                    <td>
+                        <span style="font-weight: 900;">{{title}}</span><br/>{{description}}
+                        {{#if link}}
+                        <br /><a {{bindAttr href="link"}}>{{link}}</a>
+                        {{/if}}
+                    </td>
                     <td>{{location}}</td>
                 </tr>
             {{/each}}
@@ -118,7 +126,12 @@
             {{#each experience}}
             <tr>
                 <td>{{period}}</td>
-                <td><span style="font-weight: 900;">{{title}}</span><br/>{{description}}</td>
+                <td>
+                    <span style="font-weight: 900;">{{title}}</span><br/>{{description}}
+                    {{#if link}}
+                    <br /><a {{bindAttr href="link"}}>{{link}}</a>
+                    {{/if}}
+                </td>
             </tr>
             {{/each}}
         </table>
@@ -128,8 +141,18 @@
             {{#each project}}
             <tr>
                 <td>{{period}}</td>
-                <td><span style="font-weight: 900;">{{title}}</span><br/>{{description}}</td>
-                <td>{{client}}</td>
+                <td>
+                    <span style="font-weight: 900;">{{title}}</span><br/>{{description}}
+                    {{#if link}}
+                    <br /><a {{bindAttr href="link"}}>{{link}}</a>
+                    {{/if}}
+                </td>
+                <td>
+                    {{client}}
+                    {{#if location}}
+                    <br /><span style="color: #666;">{{location}}</span>
+                    {{/if}}
+                </td>
             </tr>
             {{/each}}
         </table>
@@ -139,7 +162,13 @@
             {{#each opensource}}
             <tr>
                 <td>{{period}}</td>
-                <td><span style="font-weight: 900;">{{title}}</span><br/>{{description}}</td>
+                <td>
+                    <span style="font-weight: 900;">{{title}}</span><br/>{{description}}
+                    {{#if link}}
+                    <br /><a {{bindAttr href="link"}}>{{link}}</a>
+                    {{/if}}
+                </td>
+
             </tr>
             {{/each}}
         </table>
@@ -149,7 +178,12 @@
             {{#each publication}}
             <tr>
                 <td>{{publicationDate}}</td>
-                <td><span style="font-weight: 900;">{{title}}</span><br/>{{description}}</td>
+                <td>
+                    <span style="font-weight: 900;">{{title}}</span><br/>{{description}}
+                    {{#if link}} 
+                        <br /><a {{bindAttr href="link"}}>{{link}}</a>
+                    {{/if}}
+             </td>
             </tr>
             {{/each}}
         </table>
@@ -159,7 +193,12 @@
             {{#each course}}
             <tr>
                 <td>{{publicationDate}}</td>
-                <td><span style="font-weight: 900;">{{title}}</span><br/>{{description}}</td>
+                <td>
+                    <span style="font-weight: 900;">{{title}}</span><br/>{{description}}
+                    {{#if link}}
+                    <br /><a {{bindAttr href="link"}}>{{link}}</a>
+                    {{/if}}
+                </td>
             </tr>
             {{/each}}
         </table>
@@ -204,6 +243,9 @@
 <script src="/app/views.js" type="text/javascript" charset="utf-8"></script>
 <script src="/app/stateManager.js" type="text/javascript" charset="utf-8"></script>
 
+<script type="text/javascript" charset="utf-8">
+
+</script>
 </body>
 
 </html>
