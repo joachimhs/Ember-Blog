@@ -38,6 +38,14 @@
         "postShortIntro": "Explaining the Client-side MVC model and how it differs from the server-side MVC model",
         "postLongIntro": "We have had a number of very good server-side frameworks for building Web 2.0 Internet applications for a number of years, and they all helped spike the AJAX “revolution” for the Web. AJAX finally gave us a genuine dynamic feel to the Web, which was a very welcomed change for the users. However, everything still felt a lot like Web 1.0 on the server side, which there are two main reasons for.",
         "postFilename": "2011-05-24-The_RIA_MVC_Model.md"
+    },
+    {
+        "id": "2012-05-05-Ember_tree",
+        "postTitle": "Implementing a Custom Tree Model in Ember",
+        "postDate": "2012-05-05",
+        "postShortIntro": "Explaining the Client-side MVC model and how it differs from the server-side MVC model",
+        "postLongIntro": "We have had a number of very good server-side frameworks for building Web 2.0 Internet applications for a number of years, and they all helped spike the AJAX “revolution” for the Web. AJAX finally gave us a genuine dynamic feel to the Web, which was a very welcomed change for the users. However, everything still felt a lot like Web 1.0 on the server side, which there are two main reasons for.",
+        "postFilename": "2012-05-05-Ember_tree.md"
     }
 
 ]
